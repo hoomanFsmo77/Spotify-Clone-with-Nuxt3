@@ -1,0 +1,10 @@
+https://developer.spotify.com/documentation/web-api/quick-start/
+
+
+
+https://youtu.be/Xcet6msf3eE
+
+
+https://developer.spotify.com/documentation/general/guides/authorization/
+
+https://www.npmjs.com/package/spotify-web-api-node
