@@ -1,9 +1,5 @@
 <template>
-
-
-
-
-
+  <NuxtPage/>
 </template>
 <script setup>
 
