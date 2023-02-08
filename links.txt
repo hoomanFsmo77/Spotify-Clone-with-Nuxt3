@@ -1,17 +1,6 @@
-https://developer.spotify.com/documentation/web-api/quick-start/
 
+>>>>>> spotify web api docs
+https://github.com/thelinmichael/spotify-web-api-node
 
-
-https://youtu.be/Xcet6msf3eE
-
-
-https://developer.spotify.com/documentation/general/guides/authorization/
-
-https://www.npmjs.com/package/spotify-web-api-node
-
-
-http://localhost:9000/#access_token=BQCcPzY34Pc3ZqJpQzproQU4d-19OzMSYE0W7WMcJLNX6xWjkXn-fpxfHB4_wxvZZfH6dJw9Nb_kM_1qLhG9aWAqut-ivHpKJPmdGOgbWEVvpEWpZ4wmalDrja5PciOomx4RIyuek9w1gOMhMijIUhxWfqxcGcpRbu44rYbfBxgqdZG6sddXgHT2aLyJTfOdRQ8Mo7loL_95wKil&token_type=Bearer&expires_in=3600&state=06Q5kL43DZORwM6g
-
-
-
+>>>>>> spotify api docs
 https://developer.spotify.com/documentation/web-api/reference/#/operations/get-an-albums-tracks

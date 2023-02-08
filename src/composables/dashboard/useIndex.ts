@@ -1,41 +1,42 @@
 import {getCookie} from "~/composables/useHelper";
+import SpotifyWebApi from "spotify-web-api-node";
+import {User_Information} from "~/composables/useTypes";
 
 
 export const useIndex= ()=>{
-    const userData=ref<any>({})
+    const spotifyApi=new SpotifyWebApi()
+    const userData=useState<User_Information>('userData',()=>null)
     const access_token=getCookie('access_token')
     const route=useRoute()
     onMounted(()=>{
-        if(!access_token) {
+        if(!access_token){
             return navigateTo({
-                name:'Login'
+                name:'login'
             })
         }
-
     })
+
     watch(
         ()=>route.name,
         ()=>{
             if(access_token) {
-                $fetch<any>('https://api.spotify.com/v1/me', {
-                    headers: {
-                        'Authorization': 'Bearer ' + access_token
-                    }
-                }).then(res => {
-                    userData.value = res
+                spotifyApi.setAccessToken(access_token)
+                spotifyApi.getMe().then(res => {
+                    userData.value = res.body
                 })
             }
         },
         {immediate:true}
     )
     const getTrack = () => {
-        $fetch('https://api.spotify.com/v1/search?include_external=audio&q=artist&type=album',{
-            headers:{Authorization:'Bearer ' + access_token,}
-        }).then(res=>{
-            console.log(res)
-        }).catch(err=>{
-            console.log(err)
-        })
+        spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE').then(
+            function(data) {
+                console.log('Artist albums', data.body);
+            },
+            function(err) {
+                console.error(err);
+            }
+        );
     }
 
     return{

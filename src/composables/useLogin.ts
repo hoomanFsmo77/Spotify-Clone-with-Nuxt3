@@ -1,7 +1,7 @@
 import {generateRandomString} from "~/composables/useHelper";
 
 export const useLogin=()=>{
-    const {client_id,redirect_uri,stateKey,scope}=useAppConfig()
+    const {public:{client_id,redirect_uri,stateKey,scope}}=useRuntimeConfig()
     const loginHandler = () => {
         if(process.client){
             const state = generateRandomString(16);

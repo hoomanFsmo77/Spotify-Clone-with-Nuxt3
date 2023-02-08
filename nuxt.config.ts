@@ -1,6 +1,14 @@
 
 
 export default defineNuxtConfig({
+    runtimeConfig:{
+      public:{
+          client_id:process.env.CLIENT_ID,
+          redirect_uri:process.env.REDIRECT_URI,
+          stateKey:process.env.STATE_KEY,
+          scope:process.env.SCOPE,
+      }
+    },
     postcss:{
         plugins: {
             'postcss-import': {},
