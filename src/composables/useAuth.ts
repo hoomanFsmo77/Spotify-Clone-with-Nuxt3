@@ -1,22 +1,26 @@
-import {getHashParams, setCookie} from "~/composables/useHelper";
-import SpotifyWebApi from "spotify-web-api-node";
+import {getHashParams} from "~/composables/useHelper";
 
 export const useAuth=()=>{
+    const {public:{endpoint}}=useRuntimeConfig()
     const params = getHashParams();
-    const spotifyApi=new SpotifyWebApi()
-    onMounted(()=>{
-        const access_token = params?.access_token
-        if(access_token){
-            setCookie('access_token',access_token)
-            spotifyApi.setAccessToken(access_token)
+    const access_token=useState('access_token')
+    const isLogin=useState('isLogin')
+    onMounted(async ()=>{
+        try {
+            const auth:any=await $fetch(endpoint.login,{
+                method:'POST',
+                body:{authorization:params?.access_token}
+            })
+            access_token.value=auth.token
+            isLogin.value=true
             navigateTo('/')
-        }else{
+        }catch (e:any) {
             throw createError({
-                message:'page not found',
-                statusCode:404
+                statusCode: 404,
+                statusMessage: 'Page Not Found',
+                fatal:true
             })
         }
-
     })
 
 }

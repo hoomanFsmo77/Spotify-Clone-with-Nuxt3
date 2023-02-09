@@ -1,5 +1,4 @@
-import SpotifyWebApi from "spotify-web-api-node";
-import {CookieName,GenerateRandomString,GetHashParams,SetCookie,GetCookie} from "~/composables/useTypes";
+import {GenerateRandomString,GetHashParams} from "~/composables/useTypes";
 
 export const generateRandomString:GenerateRandomString=(length:number):string=> {
     let text = '';
@@ -25,24 +24,5 @@ export const getHashParams:GetHashParams=():{access_token:string}|null=> {
     }
 }
 
-export const setCookie:SetCookie = (name:string,hash:string):void => {
-    let date=new Date()
-    date.setTime(date.getTime() + 60*60*1000)
-    document.cookie=`${name}=${hash};path=/;expires=${date}`
-}
 
-export const getCookie:GetCookie = (name:CookieName):string|null => {
-    if(process.client){
-        const spotifyApi=new SpotifyWebApi()
-        const cookie=document.cookie
-        if(cookie.includes(name)){
-            const access_token=cookie.slice(cookie.indexOf('=')+1)
-            spotifyApi.setAccessToken(access_token)
-            return access_token
-        }else{
-            return  null
-        }
-    }else{
-        return  null
-    }
-}
+

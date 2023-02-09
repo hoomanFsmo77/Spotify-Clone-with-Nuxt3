@@ -3,6 +3,10 @@
   <p>
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aspernatur consequatur consequuntur corporis, deleniti dolore dolorem laborum mollitia nisi odio optio sed similique sint sit unde voluptatem, voluptatibus? Maxime, nobis.
   </p>
+  <NuxtLink :to="{name:'index-search'}">
+    search page
+  </NuxtLink>
+  <br>
   <p>
     {{userData}}
   </p>

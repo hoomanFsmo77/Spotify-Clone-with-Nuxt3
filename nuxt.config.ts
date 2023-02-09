@@ -7,7 +7,12 @@ export default defineNuxtConfig({
           redirect_uri:process.env.REDIRECT_URI,
           stateKey:process.env.STATE_KEY,
           scope:process.env.SCOPE,
-      }
+          endpoint:{
+              me:process.env.ME_API_ENDPOINT,
+              login:process.env.LOGIN_API_ENDPOINT
+          }
+      },
+      cookieName:process.env.COOKIE_NAME
     },
     postcss:{
         plugins: {
