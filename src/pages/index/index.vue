@@ -17,9 +17,8 @@
 </template>
 
 <script setup lang="ts">
-import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
-
-const {userData,getTrack}=useIndex()
+const {userData}=useStates()
+const {getTrack}=useIndex()
 </script>
 
 <style scoped>

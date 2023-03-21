@@ -198,10 +198,11 @@ module.exports = {
         secondary:'#000',
         /// card - down tab
         dark:'#181818',
+        'dark-light':'rgba(38,38,38,1)',
         green:'#1abc54',
         /// text
         light:'#fff',
-        gray:'#b3b3b3'
+        gray:'#aeaeae'
       }
     }
   },

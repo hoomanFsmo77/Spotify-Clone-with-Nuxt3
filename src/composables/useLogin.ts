@@ -1,4 +1,4 @@
-import {generateRandomString} from "~/composables/useHelper";
+import {generateRandomString} from "~/utils/Helper";
 
 
 export const useLogin=()=>{

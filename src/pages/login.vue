@@ -1,7 +1,9 @@
 <template>
-  <button @click="loginHandler" class="bg-red-600 p-1">
-    Login
-  </button>
+  <div class="w-[100vw] h-[100vh] flex justify-center items-center">
+    <button @click="loginHandler" class="btn btn-primary">
+      Login
+    </button>
+  </div>
 </template>
 
 <script setup lang="ts">

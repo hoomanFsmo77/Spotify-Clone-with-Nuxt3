@@ -1,4 +1,4 @@
-import {getHashParams} from "~/composables/useHelper";
+import {getHashParams} from "~/utils/Helper";
 
 export const useAuth=()=>{
     const {public:{endpoint}}=useRuntimeConfig()

@@ -1,4 +1,4 @@
-import {GenerateRandomString,GetHashParams} from "~/composables/useTypes";
+import {GenerateRandomString,GetHashParams} from "~/utils/Types";
 
 export const generateRandomString:GenerateRandomString=(length:number):string=> {
     let text = '';

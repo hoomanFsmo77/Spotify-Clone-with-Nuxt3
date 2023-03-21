@@ -1,5 +1,5 @@
 import SpotifyWebApi from "spotify-web-api-node";
-import {User_Information} from "~/composables/useTypes";
+import {User_Information} from "~/utils/Types";
 
 export default defineNuxtRouteMiddleware((to,from)=>{
     const userData=useState<User_Information>('userData',()=>null)

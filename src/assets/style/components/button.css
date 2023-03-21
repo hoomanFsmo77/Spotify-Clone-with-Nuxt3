@@ -1,0 +1,11 @@
+@tailwind components;
+
+@layer components {
+    .btn{
+        @apply block text-light py-0.8 px-1.7 rounded-4 font-500 transition-all;
+    }
+    .btn-primary{
+        @apply bg-dark hover:bg-dark-light text-gray shadow-[1px_1px_9px_rgba(255,255,255,0.09)];
+    }
+
+}
