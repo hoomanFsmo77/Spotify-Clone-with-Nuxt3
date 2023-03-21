@@ -14,7 +14,7 @@ export const useAuth=()=>{
             })
             access_token.value=auth.token
             isLogin.value=true
-            navigateTo('/')
+            navigateTo({name:'DASHBOARD_INDEX'})
         }catch (e:any) {
             showError({
                 statusCode: 404,

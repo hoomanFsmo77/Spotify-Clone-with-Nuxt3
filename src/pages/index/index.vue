@@ -17,8 +17,9 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({name:'DASHBOARD_INDEX', path:'/'})
 const {userData}=useStates()
-const {getTrack}=useIndex()
+const {getTrack}=useDashboard()
 </script>
 
 <style scoped>

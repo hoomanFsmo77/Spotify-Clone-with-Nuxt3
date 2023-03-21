@@ -7,6 +7,7 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({name:'LOGIN', path:'/login',layout:false})
 const {loginHandler}=useLogin()
 </script>
 

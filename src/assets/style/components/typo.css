@@ -4,4 +4,10 @@
     .full-page{
         @apply w-[100vw] h-[100vh] flex justify-center items-center flex-col;
     }
+    #default-layout{
+        @apply grid md:!grid-cols-[220px_1fr] grid-cols-[1fr];
+    }
+    #sidebar{
+        @apply h-[100vh] md:translate-x-0 md:!static absolute top-0 left-0 w-[220px]
+    }
 }

@@ -8,6 +8,7 @@
   </div>
 </template>
 <script setup lang="ts">
+definePageMeta({name:'AUTH', path:'/authentication',layout:false})
 const {redirectToDashboard}=useAuth()
 </script>
 
