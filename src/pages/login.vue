@@ -1,5 +1,5 @@
 <template>
-  <div class="w-[100vw] h-[100vh] flex justify-center items-center">
+  <div class="full-page">
     <button @click="loginHandler" class="btn btn-primary">
       Login
     </button>

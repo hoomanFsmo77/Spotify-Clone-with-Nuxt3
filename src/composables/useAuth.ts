@@ -5,7 +5,8 @@ export const useAuth=()=>{
     const params = getHashParams();
     const access_token=useState('access_token')
     const isLogin=useState('isLogin')
-    onMounted(async ()=>{
+
+    const redirectToDashboard =async () => {
         try {
             const auth:any=await $fetch(endpoint.login,{
                 method:'POST',
@@ -15,12 +16,17 @@ export const useAuth=()=>{
             isLogin.value=true
             navigateTo('/')
         }catch (e:any) {
-            throw createError({
+            showError({
                 statusCode: 404,
                 statusMessage: 'Page Not Found',
                 fatal:true
             })
         }
-    })
+    }
+
+    onMounted(async ()=>{await redirectToDashboard()})
+    return{
+        redirectToDashboard
+    }
 
 }

@@ -1,0 +1,7 @@
+@tailwind components;
+
+@layer components {
+    .full-page{
+        @apply w-[100vw] h-[100vh] flex justify-center items-center flex-col;
+    }
+}
