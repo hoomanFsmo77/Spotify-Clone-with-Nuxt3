@@ -24,5 +24,40 @@ export const getHashParams:GetHashParams=():{access_token:string}|null=> {
     }
 }
 
-
+export const getSidebarList = (id:string) => {
+  return {
+      section_1:[
+          {
+              id:1,
+              title:'Home',
+              icon:'fa-solid fa-house',
+              link:'/'
+          },{
+              id:2,
+              title:'Search',
+              icon:'fa-brands fa-searchengin',
+              link:'/search'
+          },{
+              id:3,
+              title:'Your Library',
+              icon:'fa-solid fa-book',
+              link:'/collection'
+          },
+      ],
+      section_2:[
+          {
+              id:1,
+              title:'Create Playlist',
+              icon:'fa-solid fa-square-plus',
+              link:`/playlist/${id}`
+          },
+          {
+              id:2,
+              title:'Liked Songs',
+              icon:'fa-brands fa-gratipay',
+              link:'/collection/tracks'
+          },
+      ]
+  }
+}
 

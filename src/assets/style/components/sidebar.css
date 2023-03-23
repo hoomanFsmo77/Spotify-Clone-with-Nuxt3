@@ -1,0 +1,25 @@
+@tailwind components;
+@layer components {
+
+    #sidebar{
+        @apply h-[100vh] md:translate-x-0 md:!static absolute top-0 left-[-300px] w-[220px] transition-all ease-in-out duration-300 bg-primary p-1.5
+    }
+    #sidebar .banner a{
+        @apply flex flex-row items-center mb-2
+    }
+    #sidebar .pages-list ul{
+        @apply  flex flex-col mt-2
+    }
+    .sidebar-list-item{
+        @apply flex items-center [&_svg]:text-gray [&_p]:text-gray [&_p]:transition-all [&_svg]:transition-all
+    }
+    .sidebar-list-item-hover:hover{
+        @apply text-light
+    }
+    .sidebar-list-item-active{
+        @apply  [&_svg]:!text-light [&_p]:!text-light
+    }
+    .user-playlist{
+        @apply mt-1 [&_li]:mb-0.8 [&_li]:cursor-pointer
+    }
+}

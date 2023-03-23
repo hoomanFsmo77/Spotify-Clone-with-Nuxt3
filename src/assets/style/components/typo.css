@@ -7,7 +7,7 @@
     #default-layout{
         @apply grid md:!grid-cols-[220px_1fr] grid-cols-[1fr];
     }
-    #sidebar{
-        @apply h-[100vh] md:translate-x-0 md:!static absolute top-0 left-0 w-[220px]
+    .divider{
+        @apply w-full h-[1px] bg-gray/50
     }
 }

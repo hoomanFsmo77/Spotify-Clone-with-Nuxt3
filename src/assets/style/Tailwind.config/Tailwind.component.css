@@ -1,3 +1,5 @@
 @import "../components/button.css";
 @import "../components/typo.css";
+@import "../components/sidebar.css";
+@import "../components/topbar.css";
 @tailwind components;

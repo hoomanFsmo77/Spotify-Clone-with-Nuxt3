@@ -197,7 +197,7 @@ module.exports = {
         /// sidebar
         secondary:'#000',
         /// card - down tab
-        dark:'#181818',
+        dark:'rgba(30,30,30,1)',
         'dark-light':'rgba(38,38,38,1)',
         green:'#1abc54',
         /// text

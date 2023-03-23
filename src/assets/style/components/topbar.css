@@ -1,0 +1,6 @@
+@tailwind components;
+@layer components {
+    .sidebar-icon{
+        @apply text-gray cursor-pointer md:hidden block text-1.5
+    }
+}
