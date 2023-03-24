@@ -1,6 +1,18 @@
 @tailwind components;
 @layer components {
+    .topbar-navigation{
+        @apply py-0.7 px-1
+    }
     .sidebar-icon{
         @apply text-gray cursor-pointer md:hidden block text-1.5
+    }
+    .icon-wrapper{
+        @apply flex w-2 h-2 justify-center items-center rounded-full bg-primary cursor-pointer
+    }
+    .icon-wrapper.disable{
+        @apply cursor-not-allowed;
+    }
+    .icon-wrapper.disable svg{
+        @apply !text-gray cursor-not-allowed
     }
 }

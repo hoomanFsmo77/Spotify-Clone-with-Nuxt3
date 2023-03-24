@@ -8,7 +8,7 @@
         @apply flex flex-row items-center mb-2
     }
     #sidebar .pages-list ul{
-        @apply  flex flex-col mt-2
+        @apply  flex flex-col mt-1.3
     }
     .sidebar-list-item{
         @apply flex items-center [&_svg]:text-gray [&_p]:text-gray [&_p]:transition-all [&_svg]:transition-all

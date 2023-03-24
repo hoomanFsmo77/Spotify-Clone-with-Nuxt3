@@ -1,13 +1,12 @@
 import {getSidebarList} from "~/utils/Helper";
-import {Sidebar_List, User_Information} from "~/utils/Types";
+import {Sidebar_List} from "~/utils/Types";
 
 
 export const useSidebar=()=>{
-    const userData=useState<User_Information>('userData')
+    const {userData}=useStates()
     const sidebarData=ref<Sidebar_List|{}>({})
     const {$spotifyApi}=useNuxtApp()
     const userPlayListItems=useState('userPlayListItems',()=>[])
-
     watch(
         ()=>userData.value,
         ()=>{
@@ -20,6 +19,6 @@ export const useSidebar=()=>{
         }
     )
     return{
-        sidebarData,userPlayListItems,userData
+        sidebarData,userPlayListItems
     }
 }

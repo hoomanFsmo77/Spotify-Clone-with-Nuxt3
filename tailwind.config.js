@@ -199,6 +199,7 @@ module.exports = {
         /// card - down tab
         dark:'rgba(30,30,30,1)',
         'dark-light':'rgba(38,38,38,1)',
+        'dark-light-2':'#333',
         green:'#1abc54',
         /// text
         light:'#fff',
