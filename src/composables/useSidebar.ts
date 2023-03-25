@@ -3,19 +3,21 @@ import {Sidebar_List} from "~/utils/Types";
 
 
 export const useSidebar=()=>{
-    const {userData}=useStates()
+    const {userDataFetchFlag,userData}=useStates()
     const sidebarData=ref<Sidebar_List|{}>({})
     const {$spotifyApi}=useNuxtApp()
     const userPlayListItems=useState('userPlayListItems',()=>[])
     watch(
-        ()=>userData.value,
+        ()=>userDataFetchFlag.value,
         ()=>{
-            if(userData.value){
+            if(userDataFetchFlag.value || userData.value){
                 sidebarData.value=getSidebarList(userData?.value?.id)
                 $spotifyApi.getUserPlaylists(userData?.value?.id).then((data:any)=>{
                     userPlayListItems.value=data.body.items
                 })
             }
+        },{
+            immediate:true
         }
     )
     return{

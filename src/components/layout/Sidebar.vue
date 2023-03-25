@@ -63,8 +63,7 @@
 
 <script setup lang="ts">
 import {useSidebar} from "~/composables/useSidebar";
-const {userDataFetchFlag}=useStates()
-const sidebarFlag=useState<boolean>('sidebarFlag')
+const {userDataFetchFlag,sidebarFlag}=useStates()
 const {sidebarData,userPlayListItems}=useSidebar()
 </script>
 

@@ -24,7 +24,7 @@ export const getHashParams:GetHashParams=():{access_token:string}|null=> {
     }
 }
 
-export const getSidebarList = (id:string) => {
+export const getSidebarList = (id:string|undefined|null) => {
   return {
       section_1:[
           {

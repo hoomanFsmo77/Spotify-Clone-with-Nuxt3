@@ -10,7 +10,8 @@
 </template>
 
 <script setup lang="ts">
-const sidebarFlag=useState<boolean>('sidebarFlag')
+import {useStates} from "~/composables/useStore";
+const {sidebarFlag}=useStates()
 const closeSidebar = (ev:Event) => {
   const el=ev.target as HTMLElement
   if(sidebarFlag.value && el.tagName!=='svg' && el.tagName!=='path'){
