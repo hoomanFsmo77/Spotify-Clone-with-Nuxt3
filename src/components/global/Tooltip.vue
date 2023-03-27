@@ -1,8 +1,8 @@
 <template>
-  <div class="tooltip relative" @mouseenter="hoverFlag=true" @mouseleave="hoverFlag=false">
+  <div  class="tooltip relative" @mouseenter="hoverFlag=true" @mouseleave="hoverFlag=false">
     <slot/>
     <Transition name="fade">
-      <p :style="{width:width}" class="tooltip-content" v-if="!disable && hoverFlag">{{content}}</p>
+      <p  :class="className" :style="{width:width}" class="tooltip-content" v-if="!disable && hoverFlag">{{content}}</p>
     </Transition>
   </div>
 </template>
@@ -20,6 +20,9 @@ const props=defineProps({
   width:{
     type:String,
     default:'auto'
+  },
+  className:{
+    type:String
   }
 })
 
@@ -28,6 +31,9 @@ const props=defineProps({
 <style>
 @tailwind components;
 @layer components {
+  .tooltip-content{
+    @apply absolute w-[92px] bottom-[-43px] shadow-[0_0px_27px_rgba(0,0,0,0.7)] left-[-20px] bg-dark-light-2 p-0.3 rounded-4
+  }
   .fade-enter-active,.fade-leave-active{
     @apply transition duration-300 ease-in-out
   }
@@ -36,9 +42,6 @@ const props=defineProps({
   }
   .fade-enter-to,.fade-leave-from{
     @apply opacity-100 visible
-  }
-  .tooltip-content{
-    @apply absolute w-[92px] bottom-[-43px] shadow-[0_0px_27px_rgba(0,0,0,0.7)] left-[-20px] bg-dark-light-2 p-0.3 rounded-4
   }
 }
 

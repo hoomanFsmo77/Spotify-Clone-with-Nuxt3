@@ -1,23 +1,15 @@
 <template>
   <nav class="topbar-navigation">
-    <container-full>
-      <div class="flex gap-0.8">
-        <button @click="gotoPreviousRoute">
-          <Tooltip content="Go back" width="70px" :disable="!backwardFlag">
-                <span class="icon-wrapper " :class="{'disable':!backwardFlag}">
-                  <font-awesome-icon class="text-light text-1.1" icon="fa-solid fa-chevron-left" />
-                </span>
-          </Tooltip>
-        </button>
-        <button @click="gotoNextRoute">
-          <Tooltip content="Go forward" width="95px" :disable="!forwardFlag">
-              <span class="icon-wrapper" :class="{'disable':!forwardFlag}">
-                  <font-awesome-icon class="text-light text-1.1" icon="fa-solid fa-chevron-right" />
-             </span>
-          </Tooltip>
-        </button>
-
-
+    <container-full class="flex justify-between items-center">
+      <TopbarNavigation/>
+      <div class="user-info flex gap-1">
+        <a
+            class="border-[1px] text-0.8 font-600 border-light/50 py-0.4 px-0.8 rounded-full block transition-all hover:scale-105 hover:border-light"
+            target="_blank"
+            href="https://www.spotify.com/fr/premium/?utm_source=app&utm_medium=desktop&utm_campaign=upgrade&ref=web_loggedin_upgrade_button">
+          Upgrade
+        </a>
+        <TopbarUser />
       </div>
       <!--    <font-awesome-icon @click="sidebarFlag=true" class="sidebar-icon" :icon="['fas', 'align-justify']" />-->
       <!--    <h5>top bar</h5>-->
@@ -28,9 +20,8 @@
 </template>
 
 <script setup lang="ts">
-import {useTopbar} from "~/composables/useTopbar";
 const sidebarFlag=useState<boolean>('sidebarFlag',()=>false)
-const {gotoPreviousRoute,gotoNextRoute,forwardFlag,backwardFlag}=useTopbar()
+
 </script>
 
 <style scoped>

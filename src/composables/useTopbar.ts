@@ -1,5 +1,5 @@
 
-export const useTopbar=()=>{
+export const useNavigation=()=>{
     const router=useRouter()
     const backwardFlag=useState<boolean>('backwardFlag',()=>false)
     const forwardFlag=useState<boolean>('forwardFlag',()=>false)
@@ -8,15 +8,18 @@ export const useTopbar=()=>{
         next:0 as number
     })
     const gotoPreviousRoute = () => {
-      if(backwardFlag.value){
+        const isAuthPage=process.client && window.history.state.back.includes('authentication')
+      if(backwardFlag.value && !isAuthPage){
           router.back()
           forwardFlag.value=true
           visitedPageCounter.prev++
           visitedPageCounter.next--
+      }else if(isAuthPage){
+          backwardFlag.value=false
       }
     }
     const gotoNextRoute = () => {
-        if(forwardFlag.value){
+        if(forwardFlag.value && process.client){
             router.forward()
             visitedPageCounter.next++
             visitedPageCounter.prev--
@@ -25,6 +28,12 @@ export const useTopbar=()=>{
             }
         }
     }
+    onMounted(()=>{
+        if(process.client && window.history.state.back.includes('authentication')){
+            backwardFlag.value=false
+        }
+    })
+
 
     return{
         gotoPreviousRoute,gotoNextRoute,backwardFlag,forwardFlag

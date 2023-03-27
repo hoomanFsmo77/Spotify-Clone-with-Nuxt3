@@ -15,4 +15,7 @@
     .icon-wrapper.disable svg{
         @apply !text-gray cursor-not-allowed
     }
+    .user-box{
+        @apply rounded-full flex items-center gap-0.5 bg-primary py-0.2 pr-0.5 transition-all hover:bg-dark-light-2 focus:bg-dark-light-2
+    }
 }

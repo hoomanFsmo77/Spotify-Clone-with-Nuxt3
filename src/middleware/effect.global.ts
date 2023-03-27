@@ -5,6 +5,5 @@ export default defineNuxtRouteMiddleware((to,from)=>{
     const {sidebarFlag}=useStates()
     const backwardFlag=useState<boolean>('backwardFlag')
     sidebarFlag.value=false
-    backwardFlag.value=true
-
+    backwardFlag.value = !(from.name === 'AUTH' && to.name === 'DASHBOARD_INDEX');
 })
