@@ -17,7 +17,7 @@
         @apply text-light
     }
     .sidebar-list-item-active{
-        @apply  [&_svg]:!text-light [&_p]:!text-light
+        @apply  [&_svg]:!text-light [&_p]:!text-light transition-all animate-scale
     }
     .user-playlist{
         @apply mt-1 [&_li]:mb-0.8 [&_li]:cursor-pointer

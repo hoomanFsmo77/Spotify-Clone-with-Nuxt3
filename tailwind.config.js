@@ -191,6 +191,15 @@ module.exports = {
     },
 
     extend:{
+      animation: {
+        scale: 'scale 0.3s linear',
+      },
+      keyframes: {
+        scale: {
+          '0%, 50%': { transform: 'scale(0.9)' },
+          '50% 100%': { transform: 'scale(1)' },
+        }
+      },
       colors:{
         /// main
         primary:'#121212',

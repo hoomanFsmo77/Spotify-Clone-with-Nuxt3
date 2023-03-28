@@ -35,7 +35,7 @@ const props=defineProps({
     @apply absolute w-[92px] bottom-[-43px] shadow-[0_0px_27px_rgba(0,0,0,0.7)] left-[-20px] bg-dark-light-2 p-0.3 rounded-4
   }
   .fade-enter-active,.fade-leave-active{
-    @apply transition duration-300 ease-in-out
+    @apply transition duration-200 ease-in-out
   }
   .fade-enter-from,.fade-leave-to{
     @apply opacity-0 invisible

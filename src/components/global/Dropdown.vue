@@ -8,7 +8,7 @@
 
 <script >
 export default {
-  props:['width','top'],
+  props:['width','top']
 }
 </script>
 <style lang="css">
