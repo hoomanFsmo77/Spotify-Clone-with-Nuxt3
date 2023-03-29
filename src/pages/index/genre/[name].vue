@@ -1,9 +1,9 @@
 <template>
-  <DashboardRecently/>
+
 </template>
 
 <script setup lang="ts">
-definePageMeta({name:'DASHBOARD_INDEX', path:'/'})
+definePageMeta({name:'GENRE_INDEX'})
 </script>
 
 <style scoped>

@@ -64,8 +64,6 @@ export const useTopbar=()=>{
             }
 
         }
-
-        console.log(scrollYPercent.value)
         last_scroll=Math.floor(window.scrollY)
     }
 
