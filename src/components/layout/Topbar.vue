@@ -1,5 +1,5 @@
 <template>
-  <nav class="topbar-navigation">
+  <nav :style="{backgroundColor:`rgba(18,18,18,${scrollYPercent/100})`}" class="topbar-navigation transition-all">
     <container-full class="flex justify-between items-center">
       <TopbarNavigation/>
       <div class="user-info flex gap-1">
@@ -20,8 +20,9 @@
 </template>
 
 <script setup lang="ts">
+import {useTopbar} from "~/composables/useTopbar";
 const sidebarFlag=useState<boolean>('sidebarFlag',()=>false)
-
+const {scrollYPercent}=useTopbar()
 </script>
 
 <style scoped>

@@ -192,11 +192,11 @@ module.exports = {
 
     extend:{
       animation: {
-        scale: 'scale 0.3s linear',
+        scale: 'scale 0.25s linear',
       },
       keyframes: {
         scale: {
-          '0%, 50%': { transform: 'scale(0.9)' },
+          '0%, 50%': { transform: 'scale(0.95)' },
           '50% 100%': { transform: 'scale(1)' },
         }
       },

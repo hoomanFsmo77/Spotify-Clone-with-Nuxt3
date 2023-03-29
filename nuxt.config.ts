@@ -9,7 +9,8 @@ export default defineNuxtConfig({
           scope:process.env.SCOPE,
           endpoint:{
               me:process.env.ME_API_ENDPOINT,
-              login:process.env.LOGIN_API_ENDPOINT
+              login:process.env.LOGIN_API_ENDPOINT,
+              logout:process.env.LOGOUT_API_ENDPOINT
           }
       },
       cookieName:process.env.COOKIE_NAME

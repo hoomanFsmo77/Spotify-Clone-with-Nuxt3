@@ -1,17 +1,18 @@
 <template>
-    <div id="default-layout">
+  <Preloader v-if="!userDataFetchFlag"/>
+    <div id="default-layout" v-else>
       <LayoutSidebar />
-      <div @click="closeSidebar($event)" class="bg-dark-light transition-all" :class="{'blur-[4px]':sidebarFlag}">
+      <main @click="closeSidebar($event)" class="bg-dark-light transition-all relative" :class="{'blur-[4px]':sidebarFlag}">
         <LayoutTopbar />
         <slot />
         <LayoutBottombar/>
-      </div>
+      </main>
     </div>
 </template>
 
 <script setup lang="ts">
 import {useStates} from "~/composables/useStore";
-const {sidebarFlag}=useStates()
+const {sidebarFlag,userDataFetchFlag}=useStates()
 const closeSidebar = (ev:Event) => {
   const el=ev.target as HTMLElement
   if(sidebarFlag.value && el.tagName!=='svg' && el.tagName!=='path'){

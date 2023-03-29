@@ -39,3 +39,45 @@ export const useNavigation=()=>{
         gotoPreviousRoute,gotoNextRoute,backwardFlag,forwardFlag
     }
 }
+
+
+export const useTopbar=()=>{
+    const scrollYPercent=useState<number>('scrollFlag',()=>0)
+    const maxScrollPoint=400
+    let last_scroll:any=null
+
+    const scrollEffect = () => {
+        if(last_scroll > Math.floor(window.scrollY)){
+            // go up
+            if(window.scrollY>0 && window.scrollY<maxScrollPoint){
+                scrollYPercent.value=scrollYPercent.value-5
+            }else if(scrollYPercent.value<0 || window.scrollY<50){
+                scrollYPercent.value=0
+            }
+
+        }else{
+            // go down
+             if(window.scrollY>0 && window.scrollY<maxScrollPoint){
+                scrollYPercent.value=scrollYPercent.value+5
+            }else if(window.scrollY>maxScrollPoint){
+                scrollYPercent.value=100
+            }
+
+        }
+
+        console.log(scrollYPercent.value)
+        last_scroll=Math.floor(window.scrollY)
+    }
+
+
+    if(process.client){
+        window.addEventListener('scroll',scrollEffect)
+    }
+
+
+
+
+    return{
+        scrollYPercent
+    }
+}
