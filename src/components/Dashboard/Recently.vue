@@ -9,20 +9,16 @@
             <p class="show-all-link">Show all</p>
           </NuxtLink>
         </div>
-        <button @click="change">
-          click
-        </button>
-
+        <div v-if="recentlyPlayFlag"
+            class="section-items">
+            <MusicBox v-for="item in recentlyPlayData" :song-data="item"/>
+        </div>
       </container-full>
     </section>
 </template>
 
 <script setup lang="ts">
-const {recentlyPlayData}=useRecently()
-const {errorModalFlag}=useStates()
-const change = () => {
-  errorModalFlag.value=!errorModalFlag.value
-}
+const {recentlyPlayData,recentlyPlayFlag}=useRecently()
 </script>
 
 <style scoped>
