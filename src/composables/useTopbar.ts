@@ -29,7 +29,7 @@ export const useNavigation=()=>{
         }
     }
     onMounted(()=>{
-        if(process.client && window.history.state.back.includes('authentication')){
+        if(process.client && window?.history?.state?.back?.includes('authentication')){
             backwardFlag.value=false
         }
     })

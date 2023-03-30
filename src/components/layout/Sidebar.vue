@@ -39,14 +39,14 @@
         </li>
       </ul>
     </div>
-    <div class="divider"></div>
-    <div v-if="userDataFetchFlag" class="user-playlist">
+    <div class="divider !w-[calc(100%-3rem)] mx-auto"></div>
+    <div v-if="userDataFetchFlag" class="user-playlist scroller">
       <ul>
         <li v-for="item in userPlayListItems">
           <NuxtLink exact-active-class="sidebar-list-item-active"
                     class="sidebar-list-item"
                     :to="`/playlist/`+item.id">
-            <p class="sidebar-list-item-hover font-600">{{item.name}}</p>
+            <p class="sidebar-list-item-hover font-600 max-w-[193px] text-hidden">{{item.name}}</p>
           </NuxtLink>
 
         </li>

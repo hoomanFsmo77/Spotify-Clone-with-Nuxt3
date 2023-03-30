@@ -9,12 +9,20 @@
             <p class="show-all-link">Show all</p>
           </NuxtLink>
         </div>
+        <button @click="change">
+          click
+        </button>
+
       </container-full>
     </section>
 </template>
 
 <script setup lang="ts">
 const {recentlyPlayData}=useRecently()
+const {errorModalFlag}=useStates()
+const change = () => {
+  errorModalFlag.value=!errorModalFlag.value
+}
 </script>
 
 <style scoped>

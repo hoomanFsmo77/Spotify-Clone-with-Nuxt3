@@ -2,7 +2,7 @@
   <Tooltip  v-if="userDataFetchFlag" :disable="isActive" :content="userData.display_name" className="!left-[20px]">
     <div @click="isActive=!isActive" v-click-outside="closeBox" :class="{'bg-dark-light-2':isActive}"  class="user-box">
       <nuxt-img class="rounded-full w-[28px] h-[28px] object-cover" width="28" height="28" :src="userData.images[0].url"/>
-      <p class="font-700 text-ellipsis overflow-hidden whitespace-nowrap max-w-[130px]">{{userData.display_name}}</p>
+      <p class="font-700 text-hidden max-w-[130px]">{{userData.display_name}}</p>
       <font-awesome-icon class="text-light" icon="fa-solid fa-caret-down" />
     </div>
     <Transition name="fade">

@@ -7,9 +7,9 @@ export const useStates=()=>{
     const access_token=useState<string>('access_token')
     const sidebarFlag=useState<boolean>('sidebarFlag')
     const recentlyPlayData=useState<any[]>('recentlyPlayData')
-
+    const errorModalFlag=useState<boolean>('errorModalFlag')
 
     return{
-        userData,access_token,userDataFetchFlag,sidebarFlag,recentlyPlayData
+        userData,access_token,userDataFetchFlag,sidebarFlag,recentlyPlayData,errorModalFlag
     }
 }

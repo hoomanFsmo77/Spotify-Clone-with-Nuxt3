@@ -10,4 +10,10 @@
     .divider{
         @apply w-full h-[1px] bg-gray/50
     }
+    .scroller{
+        scrollbar-width: thin;
+    }
+    .text-hidden{
+        @apply overflow-hidden text-ellipsis whitespace-nowrap;
+    }
 }

@@ -12,10 +12,5 @@ export default defineNuxtPlugin(async  nuxtApp=>{
     }catch (e) {
         isLogin.value=false
         access_token.value=null
-        try {
-            const logout=await $fetch(endpoint.logout)
-            navigateTo({name:'LOGIN'})
-        }catch (err) {}
-
     }
 })

@@ -1,0 +1,12 @@
+@tailwind components;
+@layer components {
+    .modal{
+        @apply fixed top-0 left-0
+    }
+    .dark-overlay{
+        @apply w-[100vw] h-[100vh] top-0 left-0 bg-[rgba(0,0,0,0.8)]
+    }
+    .modal-box{
+        @apply bg-light rounded-4 w-[420px] h-[200px]
+    }
+}

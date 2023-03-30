@@ -3,4 +3,5 @@
 @import "../components/sidebar.css";
 @import "../components/topbar.css";
 @import "../components/dashboard.css";
+@import "../components/modal.css";
 @tailwind components;
