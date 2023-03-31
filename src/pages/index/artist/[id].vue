@@ -1,9 +1,9 @@
 <template>
-  playlist
+
 </template>
 
 <script setup lang="ts">
-definePageMeta({name:'PLAYLIST_INDEX'})
+definePageMeta({name:'ARTIST_INDEX'})
 </script>
 
 <style scoped>
