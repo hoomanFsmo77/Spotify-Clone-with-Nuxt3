@@ -1,5 +1,7 @@
 <template>
   <DashboardRecently/>
+  <DashboardAudiobooks/>
+  <DashboardShows/>
 </template>
 
 <script setup lang="ts">

@@ -61,3 +61,11 @@ export const getSidebarList = (id:string|undefined|null) => {
   }
 }
 
+export const filterItem = (data:any[])=>{
+    return data.reduce((accumulator, current) => {
+        if (!accumulator.find((item:any) => item.track.id === current.track.id)) {
+            accumulator.push(current);
+        }
+        return accumulator;
+    }, []);
+}

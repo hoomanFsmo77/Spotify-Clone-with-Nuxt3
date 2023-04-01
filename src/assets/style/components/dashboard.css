@@ -1,10 +1,13 @@
 @tailwind components;
 @layer components {
-    #recently{
+    .section{
         @apply my-1
     }
     .section-link{
         @apply text-1.3 hover:underline hover:underline-offset-2 cursor-pointer font-700
+    }
+    .section-title{
+        @apply text-1.3 font-700
     }
     .show-all-link{
         @apply text-gray hover:underline hover:underline-offset-2

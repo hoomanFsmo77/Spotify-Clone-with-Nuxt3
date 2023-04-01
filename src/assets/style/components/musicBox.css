@@ -11,7 +11,7 @@
         @apply opacity-0 invisible
     }
     .v-music-box-image img{
-        @apply rounded-6 w-full object-cover
+        @apply md:!w-[190px] md:!h-[190px] w-full object-cover
     }
     .v-music-box-content{
         @apply py-0.7

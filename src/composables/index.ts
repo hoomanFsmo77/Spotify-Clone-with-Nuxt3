@@ -1,1 +1,1 @@
-export {useRecently} from './dashboard/useRecently'
+export {useSections} from './dashboard/useRecently'

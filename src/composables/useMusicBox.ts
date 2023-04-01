@@ -1,6 +1,12 @@
+interface Props{
+    artists:{id:string,name:string}[] | string
+    trackName:string,
+    link:string,
+    images:any[],
+    disableSong:boolean
+}
 
-
-export const useMusicBox=(props:{songData:SpotifyApi.UsersRecentlyPlayedTracksResponse['items'][0]})=>{
+export const useMusicBox=(props:Props)=>{
     const play=reactive({
         flag:false as boolean
     })
@@ -10,23 +16,27 @@ export const useMusicBox=(props:{songData:SpotifyApi.UsersRecentlyPlayedTracksRe
     })
     const {$spotifyApi}=useNuxtApp()
 
-    const filterImage=(images:SpotifyApi.SingleArtistResponse['images'])=>{
-        const target=images.filter((item)=>item.height===320)[0]
+    const filterImage=(images:SpotifyApi.SingleArtistResponse['images'],size:number)=>{
+        const target=images.filter((item)=>item.height===size)[0]
         return target.url
     }
 
     const getArtistImage = async () => {
         artist.flag=false
       try {
-          const artistData:{body:SpotifyApi.SingleArtistResponse}=await $spotifyApi.getArtist(props.songData.track.artists[0].id)
-         artist.image=filterImage(artistData.body.images)
+          // @ts-ignore
+          const artistData:{body:SpotifyApi.SingleArtistResponse}=await $spotifyApi.getArtist( props.artists[0]?.id)
+         artist.image=filterImage(artistData.body.images,320)
           artist.flag=true
       }catch (err) {
           console.log(err)
       }
     }
     onMounted(()=>{
-        getArtistImage()
+        if(!props.images){
+            getArtistImage()
+        }
+
     })
 
     const changePlayStatus = () => {
@@ -35,6 +45,6 @@ export const useMusicBox=(props:{songData:SpotifyApi.UsersRecentlyPlayedTracksRe
 
 
     return{
-        artist,changePlayStatus,play
+        artist,changePlayStatus,play,filterImage
     }
 }
