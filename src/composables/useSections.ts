@@ -1,5 +1,4 @@
 
-
 export const useRecently=()=>{
     const {$spotifyApi}=useNuxtApp()
     const recentlyPlayData=useState<any[]>('recentlyPlayData',()=>[])
@@ -84,12 +83,10 @@ export const useFollowedArtist=()=>{
     })
     const followedSectionFlag=useState('followedSectionFlag',()=>false)
 
-
     onMounted(async ()=>{
         followedSectionFlag.value=false
         try {
             const followedFetchData:{body:SpotifyApi.ArtistSearchResponse}=await $spotifyApi.getFollowedArtists()
-            followedSectionFlag.value=true
             followedSectionData.total=followedFetchData.body.artists.total
             followedFetchData.body.artists.items.forEach(item=>{
                 followedSectionData.artistsData.push({
@@ -98,7 +95,7 @@ export const useFollowedArtist=()=>{
                     images:item.images
                 })
             })
-            console.log(followedSectionData.artistsData)
+            followedSectionFlag.value=true
         }catch (err) {
             console.log(err)
         }
@@ -113,5 +110,34 @@ export const useFollowedArtist=()=>{
 
     return{
         followedSectionFlag,followedSectionData
+    }
+}
+
+
+export const useRecommendation=(props:{id:string,name:string})=>{
+    const {$spotifyApi}=useNuxtApp()
+    const artistTrackData=reactive({
+        flag:false as boolean,
+        data:[] as any[]
+    })
+
+    onMounted(async ()=>{
+        artistTrackData.flag=false
+        try {
+            const artistTrack=await $spotifyApi.getArtistTopTracks(props.id,'US')
+            artistTrackData.data=artistTrack.body.tracks
+            artistTrackData.flag=true
+            console.log(artistTrackData)
+        }catch (err) {
+            console.log(err)
+        }
+
+
+    })
+
+
+
+    return{
+        artistTrackData
     }
 }

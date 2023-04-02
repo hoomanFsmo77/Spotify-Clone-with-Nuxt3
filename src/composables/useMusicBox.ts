@@ -3,7 +3,9 @@ interface Props{
     trackName:string,
     link:string,
     images:any[],
-    disableSong:boolean
+    routeParam:string,
+    disableSong:boolean,
+    size:number
 }
 
 export const useMusicBox=(props:Props)=>{
@@ -29,9 +31,9 @@ export const useMusicBox=(props:Props)=>{
     const getArtistImage = async () => {
         artist.flag=false
       try {
-          // @ts-ignore
-          const artistData:{body:SpotifyApi.SingleArtistResponse}=await $spotifyApi.getArtist( props.artists[0]?.id)
-         artist.image=filterImage(artistData.body.images,320)
+          const trackData=await $spotifyApi.getTrack(props.routeParam)
+          console.log(trackData.body.album.images)
+          artist.image=filterImage(trackData.body.album.images,300)
           artist.flag=true
       }catch (err) {
           console.log(err)

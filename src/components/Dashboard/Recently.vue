@@ -16,7 +16,7 @@
                       :track-id="item.track.id"
                       :track-name="item.track.name"
                       link="ARTIST_INDEX"
-                      :routeParam="item.track.artists[0].id"
+                      :routeParam="item.track.id"
 
             />
         </div>

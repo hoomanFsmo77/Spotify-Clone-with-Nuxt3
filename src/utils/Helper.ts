@@ -77,3 +77,14 @@ export const filterFollowedList=(data:any[])=>{
         }
     })
 }
+
+export const getRandomItem=(data:any[])=>{
+    const source=[...data]
+    const result=[]
+    for(let i=0;i<2;i++){
+        const randomNumber=Math.floor(Math.random()*source.length)
+        result.push(source[randomNumber])
+        source.splice(randomNumber,1)
+    }
+    return result
+}
