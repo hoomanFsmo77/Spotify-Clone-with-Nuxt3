@@ -18,7 +18,12 @@ export const useMusicBox=(props:Props)=>{
 
     const filterImage=(images:SpotifyApi.SingleArtistResponse['images'],size:number)=>{
         const target=images.filter((item)=>item.height===size)[0]
-        return target.url
+        if(target?.url){
+            return target?.url || ''
+        }else{
+            return  ''
+        }
+
     }
 
     const getArtistImage = async () => {

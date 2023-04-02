@@ -1,5 +1,5 @@
 <template>
-  <nav :style="{backgroundColor:`rgba(18,18,18,${scrollYPercent/100})`}" class="topbar-navigation  z-[99] transition-all">
+  <nav :style="{backgroundColor:`rgba(0,0,0,${scrollYPercent/100})`}" class="topbar-navigation  z-[99] transition-all">
     <container-full class="flex justify-between items-center">
           <font-awesome-icon @click="sidebarFlag=true" class="sidebar-icon" :icon="['fas', 'align-justify']" />
       <TopbarNavigation/>

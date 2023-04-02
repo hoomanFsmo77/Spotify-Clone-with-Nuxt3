@@ -2,7 +2,7 @@
   <div class="v-music-box group">
     <div class="v-music-box-image">
       <template v-if="images">
-        <nuxt-img v-load :src="filterImage(images,300)"/>
+        <nuxt-img v-if="filterImage(images,size)" v-load :src="filterImage(images,size)"/>
         <Skeletor  class="!rounded-4" width="100%" :height="200"/>
       </template>
       <template v-else>
@@ -46,7 +46,8 @@ const props=defineProps<{
   link:string,
   images:any[],
   routeParam:string,
-  disableSong:boolean
+  disableSong:boolean,
+  size:number
 }>();
 const {artist,changePlayStatus,play,filterImage}=useMusicBox(props)
 

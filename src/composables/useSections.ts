@@ -60,7 +60,6 @@ export const useShows=()=>{
             const showsData=await $spotifyApi.getShows(['5CfCWKI5pZ28U0uOzXkDHe','5as3aKmN2k11yfDDDSrvaZ','2hqSzWW1GFAyugtjNxfgcR','6ALnjYlFQeEOmeRwYoRlIh'])
             showSectionFlag.value=true
             showSectionData.value=showsData.body.shows
-            console.log(showSectionData.value)
 
         }catch (err) {
             console.log(err)
@@ -73,5 +72,46 @@ export const useShows=()=>{
     return{
         showSectionData,
         showSectionFlag
+    }
+}
+
+
+export const useFollowedArtist=()=>{
+    const {$spotifyApi}=useNuxtApp()
+    const followedSectionData=reactive({
+        total:null as number|null,
+        artistsData:[] as any[]
+    })
+    const followedSectionFlag=useState('followedSectionFlag',()=>false)
+
+
+    onMounted(async ()=>{
+        followedSectionFlag.value=false
+        try {
+            const followedFetchData:{body:SpotifyApi.ArtistSearchResponse}=await $spotifyApi.getFollowedArtists()
+            followedSectionFlag.value=true
+            followedSectionData.total=followedFetchData.body.artists.total
+            followedFetchData.body.artists.items.forEach(item=>{
+                followedSectionData.artistsData.push({
+                    id:item.id,
+                    name:item.name,
+                    images:item.images
+                })
+            })
+            console.log(followedSectionData.artistsData)
+        }catch (err) {
+            console.log(err)
+        }
+
+
+
+    })
+
+
+
+
+
+    return{
+        followedSectionFlag,followedSectionData
     }
 }

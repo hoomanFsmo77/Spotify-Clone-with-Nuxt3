@@ -9,7 +9,8 @@
   <Preloader v-if="!userDataFetchFlag"/>
   <div id="default-layout" v-else>
       <LayoutSidebar />
-      <main @click="closeSidebar($event)" class="bg-dark-light transition-all relative" :class="{'blur-[4px]':sidebarFlag}">
+      <main @click="closeSidebar($event)" class=" transition-all relative" :class="{'blur-[4px]':sidebarFlag}">
+        <div class="main-shadow"></div>
         <LayoutTopbar />
         <slot />
         <LayoutBottombar/>

@@ -10,6 +10,7 @@
         <MusicBox v-for="item in audioBookData"
                   :artists="item.authors"
                   :images="item.images"
+                  :size="300"
                   :track-name="item.name"
                   :route-param="item.id"
                   link="SHOW_INDEX"

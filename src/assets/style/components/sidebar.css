@@ -2,7 +2,7 @@
 @layer components {
 
     #sidebar{
-        @apply h-[100vh] md:translate-x-0 md:!sticky fixed top-0 left-[-300px] w-[241px] transition-all ease-in-out duration-300 bg-primary py-1.5
+        @apply h-[100vh] md:translate-x-0 md:!sticky fixed top-0 left-[-300px] w-[241px] transition-all ease-in-out duration-300 bg-primary py-1.5 bg-secondary
     }
     #sidebar > *{
         @apply px-1.5

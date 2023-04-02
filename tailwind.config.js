@@ -191,6 +191,9 @@ module.exports = {
     },
 
     extend:{
+      backgroundImage:{
+        'section':'linear-gradient(rgba(0,0,0,0.6) 0, #121212 100%)'
+      },
       animation: {
         scale: 'scale 0.25s linear',
       },

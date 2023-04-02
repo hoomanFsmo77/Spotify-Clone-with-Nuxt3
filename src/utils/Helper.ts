@@ -69,3 +69,11 @@ export const filterItem = (data:any[])=>{
         return accumulator;
     }, []);
 }
+
+export const filterFollowedList=(data:any[])=>{
+    return  data.filter(item=>{
+        if(item.images.length===3){
+            return item
+        }
+    })
+}

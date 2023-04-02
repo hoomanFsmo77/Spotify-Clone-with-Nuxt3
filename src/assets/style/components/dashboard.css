@@ -3,6 +3,9 @@
     .section{
         @apply my-1
     }
+    .main-shadow{
+        @apply absolute top-0 right-0 w-full h-[330px] bg-[rgb(83,83,83)] bg-section
+    }
     .section-link{
         @apply text-1.3 hover:underline hover:underline-offset-2 cursor-pointer font-700
     }

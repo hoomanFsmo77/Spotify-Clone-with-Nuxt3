@@ -1,7 +1,7 @@
 <template>
     <section id="recently" v-if="recentlyPlayFlag" class="section">
       <container-full class="!px-1.6">
-        <div class="flex justify-between items-center">
+        <div class="flex justify-between items-center relative">
          <NuxtLink :to="{name:'GENRE_INDEX',params:{name:'recently-played'}}">
            <p class="section-link">Recently played</p>
          </NuxtLink >

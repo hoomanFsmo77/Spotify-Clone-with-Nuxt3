@@ -17,6 +17,7 @@
                   link="SHOW_INDEX"
                   :routeParam="item.id"
                   :images="item.images"
+                  :size="300"
                   :disableSong="true"
 
         />
