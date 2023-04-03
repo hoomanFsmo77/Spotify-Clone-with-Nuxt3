@@ -1,5 +1,5 @@
 <template>
-  <section id="recently"  class="section">
+  <section v-if="artistTrackData.flag" id="related-song"  class="section">
     <container-full class="!px-1.6">
       <div class="flex justify-between items-center relative">
         <NuxtLink :to="{name:'SECTION_INDEX',params:{id:id}}">
@@ -22,17 +22,16 @@
       </div>
     </container-full>
   </section>
-<!--  <SectionLoader v-else/>-->
+  <SectionLoader v-else/>
 </template>
 
 <script setup lang="ts">
-import {useRecommendation} from "~/composables/useSections";
-
+import {useRelatedSong} from "~/composables/useSections";
 const props=defineProps<{
   id:string
   name:string
 }>();
-const {artistTrackData}=useRecommendation(props)
+const {artistTrackData}=useRelatedSong(props)
 </script>
 
 <style scoped>

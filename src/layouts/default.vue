@@ -13,6 +13,7 @@
         <div class="main-shadow"></div>
         <LayoutTopbar />
         <slot />
+        <LayoutFooter />
         <LayoutBottombar/>
       </main>
     </div>

@@ -32,7 +32,6 @@ export const useMusicBox=(props:Props)=>{
         artist.flag=false
       try {
           const trackData=await $spotifyApi.getTrack(props.routeParam)
-          console.log(trackData.body.album.images)
           artist.image=filterImage(trackData.body.album.images,300)
           artist.flag=true
       }catch (err) {

@@ -20,8 +20,6 @@ export const useRecently=()=>{
         recentlyPlayData,recentlyPlayFlag
     }
 }
-
-
 export const useAudiobook=()=>{
     const {access_token}=useStates()
     const  audioBookData=useState<any[]>('AudioBookData',()=>[])
@@ -47,7 +45,6 @@ export const useAudiobook=()=>{
         audioBookFlag
     }
 }
-
 export const useShows=()=>{
     const {$spotifyApi}=useNuxtApp()
     const showSectionData=useState<any[]>('showSectionData',()=>[])
@@ -73,15 +70,13 @@ export const useShows=()=>{
         showSectionFlag
     }
 }
-
-
 export const useFollowedArtist=()=>{
     const {$spotifyApi}=useNuxtApp()
     const followedSectionData=reactive({
         total:null as number|null,
         artistsData:[] as any[]
     })
-    const followedSectionFlag=useState('followedSectionFlag',()=>false)
+    const followedSectionFlag=ref<boolean>(false)
 
     onMounted(async ()=>{
         followedSectionFlag.value=false
@@ -112,9 +107,7 @@ export const useFollowedArtist=()=>{
         followedSectionFlag,followedSectionData
     }
 }
-
-
-export const useRecommendation=(props:{id:string,name:string})=>{
+export const useRelatedSong=(props:{id:string,name:string})=>{
     const {$spotifyApi}=useNuxtApp()
     const artistTrackData=reactive({
         flag:false as boolean,
@@ -127,7 +120,6 @@ export const useRecommendation=(props:{id:string,name:string})=>{
             const artistTrack=await $spotifyApi.getArtistTopTracks(props.id,'US')
             artistTrackData.data=artistTrack.body.tracks
             artistTrackData.flag=true
-            console.log(artistTrackData)
         }catch (err) {
             console.log(err)
         }
@@ -139,5 +131,52 @@ export const useRecommendation=(props:{id:string,name:string})=>{
 
     return{
         artistTrackData
+    }
+}
+export const useRecommendation=(props:{id:string,name:string,images:any[]}[])=>{
+    const {$spotifyApi}=useNuxtApp()
+    const recommendationData=useState<any[]>('recommendationData',()=>[])
+    const recommendationFlag=useState('recommendationFlag',()=>false)
+
+    onMounted(async ()=>{
+        recommendationFlag.value=false
+        const seedArtist:string[]=props.map(item=>item.id).slice(0,2)
+        try {
+            const recommendSongFetch=await $spotifyApi.getRecommendations({limit:4,seed_artists:seedArtist,seed_genres:'classical,country',seed_tracks:'0c6xIDDpzE81m2q797ordA'})
+            recommendationData.value=recommendSongFetch.body.tracks
+            recommendationFlag.value=true
+        }catch (err) {
+            console.log(err)
+        }
+
+    })
+
+
+
+
+
+    return{
+        recommendationData,recommendationFlag
+    }
+}
+export const useNewReleases=()=>{
+    const {$spotifyApi}=useNuxtApp()
+    const newReleaseData=useState<any[]>('newReleaseData',()=>[])
+    const newReleaseFlag=useState('newReleaseFlag',()=>false)
+
+    onMounted(async ()=>{
+        newReleaseFlag.value=false
+        try {
+            const newReleaseFetch=await $spotifyApi.getNewReleases({limit:4})
+            newReleaseData.value=newReleaseFetch.body.albums.items
+            console.log(newReleaseData.value)
+            newReleaseFlag.value=true
+        }catch (err) {
+            console.log(err)
+        }
+    })
+
+    return{
+        newReleaseData,newReleaseFlag
     }
 }

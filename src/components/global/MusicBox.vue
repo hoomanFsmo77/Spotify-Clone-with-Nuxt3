@@ -3,11 +3,11 @@
     <div class="v-music-box-image">
       <template v-if="images">
         <nuxt-img v-if="filterImage(images,size)" v-load :src="filterImage(images,size)"/>
-        <Skeletor  class="!rounded-4" width="100%" :height="200"/>
+        <Skeletor  class="!rounded-4 !absolute !top-0 left-0" width="100%" :height="200"/>
       </template>
       <template v-else>
         <nuxt-img v-if="artist.flag" :src="artist.image"/>
-        <Skeletor v-else class="!rounded-4" width="100%" :height="200"/>
+        <Skeletor v-else class="!rounded-4 !absolute !top-0 left-0" width="100%" :height="200"/>
       </template>
 
       <button v-if="!disableSong" v-pulse="changePlayStatus" class="btn-play group-hover:!opacity-100 group-hover:!visible group-hover:!bottom-[10px]">
@@ -17,7 +17,7 @@
     </div>
     <div class="v-music-box-content">
         <p :title="trackName" class="font-600 text-hidden">{{trackName}}</p>
-      <p class="mt-0.5">
+      <p class="mt-0.5 text-hidden">
         <template v-if="typeof artists==='string'">
           <span class="!text-0.8 font-600 text-gray">{{artists}}</span>
         </template>
