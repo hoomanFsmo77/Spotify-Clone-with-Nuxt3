@@ -1,13 +1,22 @@
 <template>
   <div class="v-music-box group">
     <div class="v-music-box-image">
-      <template v-if="images">
+      <template v-if="images===undefined||null">
+        <nuxt-img v-if="artist.flag" :src="artist.image"/>
+        <Skeletor v-else class="!rounded-4 !absolute !top-0 left-0" width="100%" :height="200"/>
+      </template>
+      <template v-else-if="images.length===1">
+        <nuxt-img  v-load :src="images[0].url"/>
+        <Skeletor  class="!rounded-4 !absolute !top-0 left-0" width="100%" :height="200"/>
+      </template>
+      <template v-else-if="images.length>1">
         <nuxt-img v-if="filterImage(images,size)" v-load :src="filterImage(images,size)"/>
         <Skeletor  class="!rounded-4 !absolute !top-0 left-0" width="100%" :height="200"/>
       </template>
       <template v-else>
-        <nuxt-img v-if="artist.flag" :src="artist.image"/>
-        <Skeletor v-else class="!rounded-4 !absolute !top-0 left-0" width="100%" :height="200"/>
+        <div class="h-[190px] flex justify-center items-center bg-dark-light-2 rounded-4">
+          <svg role="img" height="64" width="64"  viewBox="0 0 24 24"  class="fill-gray"><path d="M6 3h15v15.167a3.5 3.5 0 1 1-3.5-3.5H19V5H8v13.167a3.5 3.5 0 1 1-3.5-3.5H6V3zm0 13.667H4.5a1.5 1.5 0 1 0 1.5 1.5v-1.5zm13 0h-1.5a1.5 1.5 0 1 0 1.5 1.5v-1.5z"></path></svg>
+        </div>
       </template>
 
       <button v-if="!disableSong" v-pulse="changePlayStatus" class="btn-play group-hover:!opacity-100 group-hover:!visible group-hover:!bottom-[10px]">

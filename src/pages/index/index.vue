@@ -12,6 +12,7 @@
     <DashboardRecommendation :follow-list="followedSectionData"/>
   </template>
   <DashboardNewReleases/>
+  <DashboardPlaylist />
 </template>
 
 <script setup lang="ts">

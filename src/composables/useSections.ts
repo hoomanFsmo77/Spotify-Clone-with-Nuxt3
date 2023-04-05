@@ -82,6 +82,7 @@ export const useFollowedArtist=()=>{
         followedSectionFlag.value=false
         try {
             const followedFetchData:{body:SpotifyApi.ArtistSearchResponse}=await $spotifyApi.getFollowedArtists()
+            console.log(followedFetchData)
             followedSectionData.total=followedFetchData.body.artists.total
             followedFetchData.body.artists.items.forEach(item=>{
                 followedSectionData.artistsData.push({
@@ -169,7 +170,6 @@ export const useNewReleases=()=>{
         try {
             const newReleaseFetch=await $spotifyApi.getNewReleases({limit:4})
             newReleaseData.value=newReleaseFetch.body.albums.items
-            console.log(newReleaseData.value)
             newReleaseFlag.value=true
         }catch (err) {
             console.log(err)
@@ -178,5 +178,28 @@ export const useNewReleases=()=>{
 
     return{
         newReleaseData,newReleaseFlag
+    }
+}
+export  const usePlaylist=()=>{
+    const {$spotifyApi}=useNuxtApp()
+    const playListData=useState<any[]>('playListData',()=>[])
+    const playListFlag=useState('playListFlag',()=>false)
+
+    onMounted(async ()=>{
+        playListFlag.value=false
+        try {
+            const playlistFetchData=await $spotifyApi.getUserPlaylists({limit:4})
+            playListData.value=playlistFetchData.body.items
+            playListFlag.value=true
+        }catch (err) {
+            console.log(err)
+        }
+
+
+    })
+
+    return{
+        playListFlag,playListData
+
     }
 }
