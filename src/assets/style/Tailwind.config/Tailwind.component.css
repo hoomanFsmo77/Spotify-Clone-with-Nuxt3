@@ -5,4 +5,5 @@
 @import "../components/dashboard.css";
 @import "../components/modal.css";
 @import "../components/musicBox.css";
+@import "../components/bottomBar.css";
 @tailwind components;

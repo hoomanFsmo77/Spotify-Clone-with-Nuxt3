@@ -1,5 +1,9 @@
 <template>
-  <div  class="tooltip relative" @mouseenter="hoverFlag=true" @mouseleave="hoverFlag=false">
+  <div  class="tooltip relative"
+        @mouseout="hoverFlag=false"
+        @mouseover="hoverFlag=true"
+
+  >
     <slot/>
     <Transition name="fade">
       <p  :class="className" :style="{width:width}" class="tooltip-content" v-if="!disable && hoverFlag">{{content}}</p>

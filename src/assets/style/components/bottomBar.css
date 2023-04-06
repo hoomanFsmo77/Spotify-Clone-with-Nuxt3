@@ -1,0 +1,28 @@
+@tailwind components;
+
+@layer components {
+    #music-controller{
+        @apply fixed bottom-0 right-0 h-[85px] w-full bg-dark-light
+    }
+    .controller-icon{
+        @apply text-gray  !text-1.3 cursor-pointer transition-all hover:!text-light
+    }
+    .play-controller{
+        @apply w-2 h-2 rounded-full bg-light relative cursor-pointer hover:scale-105 transition-all [&_svg]:absolute [&_svg]:right-[28%] [&_svg]:top-[26%]
+    }
+    .progress-bar-section{
+        @apply flex gap-0.7 relative items-center
+    }
+    .progress-bar-timer{
+        @apply text-0.8 text-gray
+    }
+    .range-input{
+        @apply  absolute bottom-0 right-0 w-[198px] appearance-none bg-transparent cursor-pointer
+    }
+    .progress-bar{
+        @apply w-[198px] h-[3px] bg-gray/50 rounded-4 relative overflow-hidden
+    }
+    .progress-bar-inner{
+        @apply absolute left-0 top-0 w-full h-full w-1 bg-gray
+    }
+}
