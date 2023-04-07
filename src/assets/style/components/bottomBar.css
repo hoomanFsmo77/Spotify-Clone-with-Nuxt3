@@ -17,10 +17,10 @@
         @apply text-0.8 text-gray
     }
     .range-input{
-        @apply  absolute bottom-0 right-0 w-[198px] appearance-none bg-transparent cursor-pointer
+        @apply  absolute bottom-0 right-0 w-[400px] appearance-none bg-transparent cursor-pointer
     }
     .progress-bar{
-        @apply w-[198px] h-[3px] bg-gray/50 rounded-4 relative overflow-hidden
+        @apply w-[400px] h-[3px] bg-gray/50 rounded-4 relative overflow-hidden
     }
     .progress-bar-inner{
         @apply absolute left-0 top-0 w-full h-full w-1 bg-gray

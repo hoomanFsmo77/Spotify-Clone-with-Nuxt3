@@ -1,3 +1,5 @@
+import {useMusicStore} from "~/composables/useStore";
+
 interface Props{
     artists:{id:string,name:string}[] | string
     trackName:string,
@@ -5,10 +7,14 @@ interface Props{
     images:any[],
     routeParam:string,
     disableSong:boolean,
-    size:number
+    size:number,
+    trackId:string
+
 }
 
 export const useMusicBox=(props:Props)=>{
+    const {musicStore}=useMusicStore()
+    const {$spotifyApi}=useNuxtApp()
     const play=reactive({
         flag:false as boolean
     })
@@ -16,7 +22,7 @@ export const useMusicBox=(props:Props)=>{
         image:'' as string,
         flag:false as boolean
     })
-    const {$spotifyApi}=useNuxtApp()
+
 
     const filterImage=(images:SpotifyApi.SingleArtistResponse['images'],size:number)=>{
         const target=images.filter((item)=>item.height===size)[0]
@@ -46,7 +52,8 @@ export const useMusicBox=(props:Props)=>{
     })
 
     const changePlayStatus = () => {
-        play.flag=!play.flag
+        musicStore.$patch({id:props.trackId})
+        musicStore.setTrackDetail()
     }
 
 

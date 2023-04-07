@@ -1,15 +1,15 @@
 <template>
   <section id="music-controller">
-    <container-full class="h-full !p-0.9 flex gap-2 items-center">
+    <container-full class="h-full justify-between !p-0.9 flex gap-2 items-center">
       <div class="flex gap-1 items-center">
-        <nuxt-img src="https://i.scdn.co/image/ab67616d000048510c471c36970b9406233842a5"/>
-        <div>
-          <NuxtLink class="hover:underline" :to="{name:'ALBUM_INDEX',params:{id:'1nrVofqDRs7cpWXJ49qTnP'}}">
-            SOS
+        <nuxt-img v-if="getTrackFullInfo.image" width="64" height="64" :src="getTrackFullInfo.image"/>
+        <div v-if="getTrackFullInfo.id">
+          <NuxtLink class="hover:underline" :to="{name:'ALBUM_INDEX',params:{id:getTrackFullInfo.id}}">
+            {{getTrackFullInfo.name}}
           </NuxtLink>
           <br>
           <NuxtLink class="!text-0.7 text-gray hover:underline" :to="{name:'ARTIST_INDEX',params:{id:'7tYKF4w9nC0nq9CsPZTHyP'}}">
-            SZA
+            {{getTrackFullInfo.artist}}
           </NuxtLink>
         </div>
         <Tooltip content="Save to Your Library" width="158px" className="!top-[-43px] !left-[-43px] !bottom-[34px]">
@@ -46,12 +46,34 @@
           </div>
         </div>
       </div>
+      <div class="pr-1 flex gap-1 items-center">
+        <Tooltip content="Lyrics" width="52px" className="!top-[-43px] !left-[-18px] !bottom-[34px]">
+          <font-awesome-icon class="controller-icon" icon="fa-solid fa-microphone" />
+        </Tooltip>
+        <Tooltip content="Queue" width="58px" className="!top-[-43px] !left-[-18px] !bottom-[34px]">
+          <font-awesome-icon class="controller-icon" icon="fa-solid fa-bars" />
+        </Tooltip>
+        <div class="flex gap-1 items-center">
+          <Tooltip content="Mute" width="52px" className="!top-[-43px] !left-[-10px] !bottom-[34px]">
+            <font-awesome-icon class="controller-icon" icon="fa-solid fa-volume-high" />
+          </Tooltip>
+          <input class="custom-volume-range" type="range">
+        </div>
+
+
+<!--        <p>-->
+<!--          <font-awesome-icon icon="fa-solid fa-microphone" />-->
+<!--          <font-awesome-icon icon="fa-solid fa-bars" />-->
+<!--          <font-awesome-icon icon="fa-solid fa-volume-high" />-->
+<!--        </p>-->
+      </div>
     </container-full>
   </section>
 </template>
 
 <script setup lang="ts">
-
+import {useMusicStore} from "~/composables/useStore";
+const {getTrackFullInfo}=useMusicStore()
 </script>
 
 <style >
@@ -65,4 +87,27 @@
   opacity: 0;
   visibility: hidden;
 }
+
+.custom-volume-range{
+  -webkit-appearance: none;
+  appearance: none;
+  background: #1abc54 !important;
+  height: 4px;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 80px;
+}
+
+
+.custom-volume-range::-webkit-slider-thumb ,
+.custom-volume-range::-webkit-slider-runnable-track,
+.custom-volume-range::-moz-range-thumb{
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+}
+
+
 </style>

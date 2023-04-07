@@ -20,7 +20,7 @@
       </template>
 
       <button v-if="!disableSong" v-pulse="changePlayStatus" class="btn-play group-hover:!opacity-100 group-hover:!visible group-hover:!bottom-[10px]">
-        <font-awesome-icon v-if="play.flag" class="text-1.2" icon="fa-solid fa-pause" />
+        <font-awesome-icon v-if="getTrackId===trackId" class="text-1.2" icon="fa-solid fa-pause" />
         <font-awesome-icon v-else class="text-1.2" icon="fa-solid fa-play" />
       </button>
     </div>
@@ -49,6 +49,8 @@
 </template>
 
 <script setup lang="ts">
+import {useMusicStore} from "~/composables/useStore";
+const {getTrackId}=useMusicStore()
 const props=defineProps<{
   artists:{id:string,name:string}[] | string
   trackName:string,
@@ -56,7 +58,8 @@ const props=defineProps<{
   images:any[],
   routeParam:string,
   disableSong:boolean,
-  size:number
+  size:number,
+  trackId:string
 }>();
 const {artist,changePlayStatus,play,filterImage}=useMusicBox(props)
 

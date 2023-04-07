@@ -82,7 +82,6 @@ export const useFollowedArtist=()=>{
         followedSectionFlag.value=false
         try {
             const followedFetchData:{body:SpotifyApi.ArtistSearchResponse}=await $spotifyApi.getFollowedArtists()
-            console.log(followedFetchData)
             followedSectionData.total=followedFetchData.body.artists.total
             followedFetchData.body.artists.items.forEach(item=>{
                 followedSectionData.artistsData.push({

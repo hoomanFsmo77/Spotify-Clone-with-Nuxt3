@@ -1,5 +1,5 @@
 import {User_Information} from "~/utils/Types";
-
+import {Music} from "~/store/music";
 
 export const useStates=()=>{
     const userData=useState<User_Information>('userData')
@@ -12,4 +12,18 @@ export const useStates=()=>{
     return{
         userData,access_token,userDataFetchFlag,sidebarFlag,recentlyPlayData,errorModalFlag
     }
+}
+
+export const useMusicStore=()=>{
+    const musicStore=Music()
+    const getTrackId=computed<string>(()=>musicStore.getTrackId)
+    const getTrackFullInfo=computed<any>(()=>musicStore.getTrackFullInfo)
+
+
+
+
+    return{
+        musicStore,getTrackId,getTrackFullInfo
+    }
+
 }

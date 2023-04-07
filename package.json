@@ -39,6 +39,7 @@
     "postcss-import": "^15.1.0",
     "postcss-loader": "^7.0.2",
     "spotify-web-api-node": "^5.0.2",
+    "spotify-web-playback-ts": "^0.0.2",
     "vue-skeletor": "^1.0.6"
   }
 }

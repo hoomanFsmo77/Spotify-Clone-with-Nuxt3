@@ -45,7 +45,6 @@
 <script setup lang="ts">
 import {useStates} from "~/composables/useStore";
 const {userData,userDataFetchFlag}=useStates();
-console.log(userData.value)
 const isActive=ref<boolean>(false)
 const closeBox = () => {
   isActive.value=false

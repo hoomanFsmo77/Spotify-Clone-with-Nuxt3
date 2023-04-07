@@ -1,8 +1,8 @@
 <template>
   <div  class="tooltip relative"
-        @mouseout="hoverFlag=false"
-        @mouseover="hoverFlag=true"
-
+        @mouseleave="hoverFlag=false"
+        @mouseenter="hoverFlag=true"
+        @mouseover.prevent
   >
     <slot/>
     <Transition name="fade">
