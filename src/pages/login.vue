@@ -12,7 +12,17 @@
 
 <script setup lang="ts">
 definePageMeta({name:'LOGIN', path:'/login',layout:false})
-const {loginHandler}=useLogin()
+const loginHandler =async () => {
+  if(process.client){
+    try {
+      const login:any=await $fetch('/api/login')
+      window.location=login
+    }catch (err) {
+      console.log(err)
+    }
+  }
+}
+
 </script>
 
 <style scoped>

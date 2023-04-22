@@ -4,13 +4,14 @@ import {Music} from "~/store/music";
 export const useStates=()=>{
     const userData=useState<User_Information>('userData')
     const userDataFetchFlag=useState<boolean>('userDataFetchFlag',()=>false)
-    const access_token=useState<string>('access_token')
+    const access_token=useState<string>('accessToken')
+    const isLogin=useState('isLogin')
     const sidebarFlag=useState<boolean>('sidebarFlag')
     const recentlyPlayData=useState<any[]>('recentlyPlayData')
     const errorModalFlag=useState<boolean>('errorModalFlag')
 
     return{
-        userData,access_token,userDataFetchFlag,sidebarFlag,recentlyPlayData,errorModalFlag
+        userData,access_token,userDataFetchFlag,sidebarFlag,recentlyPlayData,errorModalFlag,isLogin
     }
 }
 

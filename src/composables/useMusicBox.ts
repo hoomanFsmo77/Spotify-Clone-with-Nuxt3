@@ -54,6 +54,7 @@ export const useMusicBox=(props:Props)=>{
     const changePlayStatus = () => {
         musicStore.$patch({id:props.trackId})
         musicStore.setTrackDetail()
+        musicStore.play()
     }
 
 

@@ -1,9 +1,7 @@
 import {setCookie} from "h3";
 
-
 export default defineEventHandler(async ev=>{
-    const {cookieName}=useRuntimeConfig()
-    setCookie(ev,cookieName,'',{
+    setCookie(ev,'spotify_access_token','',{
         httpOnly:true,
         secure:true,
         maxAge:new Date(0).getTime(),

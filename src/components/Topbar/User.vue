@@ -51,7 +51,10 @@ const closeBox = () => {
 }
 const logoutHandler = async () => {
   try {
-    const data=await $fetch('/api/auth/logout',{method:'POST'})
+    const data=await $fetch('/api/logout',{method:'POST'})
+    if(process.client){
+      localStorage.removeItem('spotify-refresh-token')
+    }
     navigateTo({name:'LOGIN'})
   }catch (err) {
     console.log(err)

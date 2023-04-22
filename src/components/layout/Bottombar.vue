@@ -73,7 +73,11 @@
 
 <script setup lang="ts">
 import {useMusicStore} from "~/composables/useStore";
-const {getTrackFullInfo}=useMusicStore()
+const {getTrackFullInfo,musicStore}=useMusicStore()
+onMounted(()=>{
+  musicStore.setInitialTrack()
+})
+
 </script>
 
 <style >

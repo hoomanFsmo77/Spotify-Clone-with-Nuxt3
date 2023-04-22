@@ -1,7 +1,6 @@
 <template>
   <DashboardRecently/>
   <DashboardAudiobooks/>
-  <DashboardShows/>
   <template v-if="followedSectionFlag">
     <DashboardFollowArtist :follow-list="followedSectionData" />
     <DashboardRelatedSong
@@ -11,6 +10,7 @@
     />
     <DashboardRecommendation :follow-list="followedSectionData"/>
   </template>
+  <DashboardShows/>
   <DashboardNewReleases/>
   <DashboardPlaylist />
 </template>
